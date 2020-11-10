@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('get docker image') {
             steps {
-                sh "docker-compose up"
+            dir ('var/jenkins_home/workspace/DockerPipeline_master') {
+                sh 'docker-compose up'
+                }
             }
         }
          stage('Test') {
