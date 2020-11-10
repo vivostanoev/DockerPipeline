@@ -25,7 +25,7 @@ pipeline {
         }
          stage('Test') {
                     steps {
-                        sh 'mvn -clean -test -Dwebdriver.type=remote -Dwebdriver.url=http://localhost:4444/wd/hub -Dwebdriver.cap.browserName=chrome'
+                        sh 'mvn clean test -Dwebdriver.type=remote -Dwebdriver.url=http://localhost:4444/wd/hub -Dwebdriver.cap.browserName=chrome'
                     }
                 }
     }
