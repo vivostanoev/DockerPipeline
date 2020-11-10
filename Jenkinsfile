@@ -2,7 +2,7 @@ pipeline {
     agent any
 
      environment {
-            PATH = "/var/jenkins_home/workspace/DockerPipeline_master/docker-compose.yml"
+            PATH = "$PATH:/var/jenkins_home/workspace/DockerPipeline_master"
         }
     stages {
         stage('get docker image') {
