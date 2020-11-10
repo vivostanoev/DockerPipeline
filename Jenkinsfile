@@ -1,9 +1,13 @@
 pipeline {
     agent any
+
+     environment {
+            PATH = "/var/jenkins_home/workspace/DockerPipeline_master/docker-compose.yml"
+        }
     stages {
         stage('get docker image') {
             steps {
-                sh 'docker-compose -f /var/jenkins_home/workspace/DockerPipeline_master/docker-compose.yml up --build'
+                sh 'docker-compose up'
             }
         }
          stage('Test') {
