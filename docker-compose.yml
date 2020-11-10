@@ -6,6 +6,8 @@ services:
     image: selenium/hub:latest
     ports:
         - 4444:4444
+    network:
+      driver: bridge
 
   chrome:
     image: selenium/node-chrome:latest

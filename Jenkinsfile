@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('get docker image') {
             steps {
-                sh 'var/jenkins_home/workspace/DockerPipeline_master/docker-compose.yml up'
+                sh './docker-compose up'
             }
         }
          stage('Test') {
