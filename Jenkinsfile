@@ -5,13 +5,7 @@ def firefox='firefox-${BUILD_NUMBER}'
 def containertest='conatinertest-${BUILD_NUMBER}'
 
 pipeline {
-    agent
-    {
-            docker {
-                image 'maven:3-alpine'
-                args '-v /root/.m2:/root/.m2'
-            }
-        }
+    agent any
 
     stages {
         stage('run a grid') {
@@ -25,7 +19,7 @@ pipeline {
          stage('Test') {
                     steps {
                                       sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -e BROWSER=chrome -e MODULE=order-module.xml -v ${WORKSPACE}/order:/usr/share/tag/test-output  --network ${network} vinsdocker/containertest"
-                        sh 'mvn clean test -Dwebdriver.type=remote -Dwebdriver.url=http://localhost:4445/wd/hub -Dwebdriver.cap.browserName=chrome'
+                                      sh 'mvn clean test -Dwebdriver.type=remote -Dwebdriver.url=http://localhost:4445/wd/hub -Dwebdriver.cap.browserName=chrome'
                     }
                 }
                  stage('Tearing Down Selenium Grid') {
