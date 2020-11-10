@@ -7,7 +7,7 @@ def containertest='conatinertest-${BUILD_NUMBER}'
 pipeline {
     agent any
 tools {
-        maven 'Maven 3.3.9'
+        maven 'maven'
     }
     stages {
         stage('run a grid') {
