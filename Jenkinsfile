@@ -12,15 +12,14 @@ pipeline {
             steps{
                         echo 'abv'
                         sh "docker network create ${network}"
-                        sh "docker run -d --name maven --network ${network} maven:3.6.3-amazoncorretto"
                         sh "docker run -d -p 4445:4445 --name ${seleniumHub} --network ${network} selenium/hub"
                         sh "docker run -d -e HUB_PORT_4444_TCP_ADDR=${seleniumHub} -e HUB_PORT_4445_TCP_PORT=4445 --network ${network} --name ${chrome} selenium/node-chrome"
             }
         }
          stage('Test') {
                     steps {
-                                      //sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -e BROWSER=chrome -e MODULE=order-module.xml -v ${WORKSPACE}/order:/usr/share/tag/test-output  --network ${network} vinsdocker/containertest"
-                                      sh 'mvn clean test -Dwebdriver.url=http://localhost:4445/wd/hub -Dwebdriver.cap.browserName=chrome'
+                                      sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -e BROWSER=chrome -e MODULE=order-module.xml -v ${WORKSPACE}/order:/usr/share/tag/test-output  --network ${network} vinsdocker/containertest"
+                                      sh 'mvn clean test -Dwebdriver.type=remote -Dwebdriver.url=http://localhost:4445/wd/hub -Dwebdriver.cap.browserName=chrome'
                     }
                 }
                  stage('Tearing Down Selenium Grid') {
