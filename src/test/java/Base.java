@@ -2,6 +2,8 @@ import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Allure;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.runners.BlockJUnit4ClassRunner;
+import org.junit.runners.model.InitializationError;
 
 import static com.codeborne.selenide.Selenide.open;
 
