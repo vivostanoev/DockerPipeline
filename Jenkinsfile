@@ -10,7 +10,6 @@ pipeline {
     stages {
         stage('run a grid') {
             steps{
-            cleanWs();
                         echo 'abv'
                         sh "docker network create ${network}"
                         sh "docker run -d -p 4446:4446 --name ${seleniumHub} --network ${network} selenium/hub"
@@ -21,7 +20,7 @@ pipeline {
          stage('Test') {
                     steps {
                                       //sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -e BROWSER=chrome -e MODULE=order-module.xml -v ${WORKSPACE}/order:/usr/share/tag/test-output  --network ${network} vinsdocker/containertest"
-                                      sh 'mvn clean test -Dwebdriver.type=remote -Dwebdriver.url=http://localhost:4446/wd/hub -Dwebdriver.cap.browserName=chrome'
+                                      sh 'mvn test -Dwebdriver.type=remote -Dwebdriver.url=http://localhost:4446/wd/hub -Dwebdriver.cap.browserName=chrome'
                     }
                 }
                  stage('Tearing Down Selenium Grid') {
