@@ -10,6 +10,7 @@ pipeline {
     stages {
         stage('run a grid') {
             steps{
+            cleanWs();
                         echo 'abv'
                         sh "docker network create ${network}"
                         sh "docker run -d -p 4446:4446 --name ${seleniumHub} --network ${network} selenium/hub"
