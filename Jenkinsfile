@@ -11,16 +11,15 @@ pipeline {
         stage('run a grid') {
             steps{
                         echo 'abv'
-                    sh 'docker network create grid'
-                    sh 'docker run -d -p 4444:4444 --net grid --name selenium-hub selenium/hub:3.141.59-20201119'
-                    sh 'docker run -d --net grid -e HUB_HOST=selenium-hub -v /dev/shm:/dev/shm selenium/node-chrome:3.141.59-20201119'
-                    sh 'docker run -d --net grid -e HUB_HOST=selenium-hub -v /dev/shm:/dev/shm selenium/node-firefox:3.141.59-20201119'
-                    sh 'docker run -d --net grid -e HUB_HOST=selenium-hub -v /dev/shm:/dev/shm selenium/node-opera:3.141.59-20201119'
+                    sh 'docker network create ${network}'
+                    sh 'docker run -d -p 4444:4444 --net grid --name ${seleniumHub}selenium/hub:3.141.59-20201119'
+                    sh 'docker run -d --net grid -e HUB_HOST=selenium-hub --name ${chrome} -v /dev/shm:/dev/shm selenium/node-chrome:3.141.59-20201119'
+                    sh 'docker run -d --net grid --name maven maven:3-alpine'
             }
         }
          stage('Test') {
                     steps {
-                    sh 'docker run -d --net grid --name maven maven:3.2-jdk-7 mvn -pom.xml clean install'
+                    sh 'mvn clean install'
                     }
                 }
                  stage('Tearing Down Selenium Grid') {
