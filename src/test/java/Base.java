@@ -6,7 +6,11 @@ import org.junit.Rule;
 import org.junit.rules.ErrorCollector;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.junit.runners.model.InitializationError;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 
@@ -21,7 +25,12 @@ public class Base {
     public ErrorCollector errorCollector = new ErrorCollector();
 
     @Before
-    public void beforeTest() {
+    public void beforeTest() throws MalformedURLException {
+
+        String urlToRemoteWD = "http://localhost:4444/wd/hub";
+        RemoteWebDriver driver =new RemoteWebDriver(new URL(urlToRemoteWD), DesiredCapabilities.chrome());
+        WebDriverRunner.setWebDriver(driver);
+
         Allure.step("Open a browser dialog");
         open("https://www.demoblaze.com/");
 
