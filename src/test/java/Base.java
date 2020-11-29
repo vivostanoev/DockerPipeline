@@ -6,6 +6,7 @@ import org.junit.Rule;
 import org.junit.rules.ErrorCollector;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.junit.runners.model.InitializationError;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -27,8 +28,10 @@ public class Base {
     @Before
     public void beforeTest() throws MalformedURLException {
 
+        ChromeOptions option = new ChromeOptions();
         String urlToRemoteWD = "http://localhost:4444/wd/hub";
-        RemoteWebDriver driver =new RemoteWebDriver(new URL(urlToRemoteWD), DesiredCapabilities.chrome());
+
+        RemoteWebDriver driver =new RemoteWebDriver(new URL(urlToRemoteWD), option);
         WebDriverRunner.setWebDriver(driver);
 
         Allure.step("Open a browser dialog");
