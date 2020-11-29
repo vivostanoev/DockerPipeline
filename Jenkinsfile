@@ -5,7 +5,12 @@ def firefox='firefox-${BUILD_NUMBER}'
 def containertest='conatinertest-${BUILD_NUMBER}'
 
 pipeline {
-    agent any
+    agent {
+            docker {
+                image 'maven:3-alpine'
+                args '-v /root/.m2:/root/.m2'
+            }
+        }
 
     stages {
         stage('run a grid') {
