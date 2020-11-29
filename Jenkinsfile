@@ -20,8 +20,7 @@ pipeline {
         }
          stage('Test') {
                     steps {
-                    docker run -d --net grid --name maven maven:3.2-jdk-7 mvn -pom.xml clean install
-
+                    'docker run -d --net grid --name maven maven:3.2-jdk-7 mvn -pom.xml clean install'
                     }
                 }
                  stage('Tearing Down Selenium Grid') {
