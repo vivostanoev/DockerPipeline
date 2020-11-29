@@ -11,7 +11,7 @@ pipeline {
         stage('run a grid') {
             steps{
                         echo 'abv'
-                    sh 'docker network create ${network}'
+                    sh 'docker network create grid'
                     sh 'docker run -d -p 4444:4444 --net grid --name ${seleniumHub}selenium/hub:3.141.59-20201119'
                     sh 'docker run -d --net grid -e HUB_HOST=selenium-hub --name ${chrome} -v /dev/shm:/dev/shm selenium/node-chrome:3.141.59-20201119'
                     sh 'docker run -d --net grid --name maven maven:3-alpine'
@@ -28,7 +28,7 @@ pipeline {
                              sh "docker rm -vf ${chrome}"
                              sh "docker rm -vf ${seleniumHub}"
                              sh "docker rm -vf maven"
-                             sh "docker network rm ${network}"
+                             sh "docker network rm grid"
                           }
                         }
     }
