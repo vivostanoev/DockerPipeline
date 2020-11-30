@@ -29,7 +29,7 @@ public class Base {
     public void beforeTest() throws MalformedURLException {
 
         ChromeOptions option = new ChromeOptions();
-        String urlToRemoteWD = "http://localhost:4444/wd/hub";
+        String urlToRemoteWD = "http://192.168.99.100:4444/wd/hub";
 
         RemoteWebDriver driver =new RemoteWebDriver(new URL(urlToRemoteWD), option);
         WebDriverRunner.setWebDriver(driver);
