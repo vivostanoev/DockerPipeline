@@ -17,8 +17,7 @@ pipeline {
         }
          stage('Test') {
                     steps {
-
-                            sh sh 'docker run --network ${network} -e HUB_PORT_4444_TCP_ADDR=selenium-hub maven:3-alpine mvn clean install -f ${WORKSPACE}'
+                             sh 'docker run --network ${network} -e HUB_PORT_4444_TCP_ADDR=selenium-hub maven:3-alpine mvn clean install -f ${WORKSPACE}'
                     }
                 }
                  stage('Tearing Down Selenium Grid') {
