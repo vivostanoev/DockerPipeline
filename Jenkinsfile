@@ -17,10 +17,16 @@ pipeline {
             }
         }
          stage('Run maven tests Test') {
-                    steps {
+
+           agent { docker 'maven:3-alpine' }
+                     steps {
+                         echo 'Hello, Maven'
+                         sh 'mvn test'
+                     }
+                    //steps {
                                       //sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -e BROWSER=chrome -e MODULE=order-module.xml -v ${WORKSPACE}/order:/usr/share/tag/test-output  --network ${network} vinsdocker/containertest"
-                           sh 'docker run maven:3.3-jdk-8 mvn clean install -f ${WORKSPACE}/pom.xml'
-                    }
+                      //     sh 'docker run maven:3.3-jdk-8 mvn clean install -f ${WORKSPACE}/pom.xml'
+                    //}
                 }
                  stage('Tearing Down Selenium Grid') {
                           steps {
