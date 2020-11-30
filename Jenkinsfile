@@ -20,7 +20,7 @@ pipeline {
 
                     steps {
                                       //sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -e BROWSER=chrome -e MODULE=order-module.xml -v ${WORKSPACE}/order:/usr/share/tag/test-output  --network ${network} vinsdocker/containertest"
-                           sh 'docker run --network ${network} maven:3.3-jdk-8 mvn clean install -f ${WORKSPACE}/pom.xml'
+                           sh 'docker run --network ${network} maven:3-alpine mvn clean install -f ${WORKSPACE}/pom.xml'
                     }
                 }
                  stage('Tearing Down Selenium Grid') {
