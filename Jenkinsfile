@@ -19,7 +19,7 @@ pipeline {
          stage('Run maven tests Test') {
                     steps {
                                       //sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -e BROWSER=chrome -e MODULE=order-module.xml -v ${WORKSPACE}/order:/usr/share/tag/test-output  --network ${network} vinsdocker/containertest"
-                           sh 'docker run -it --rm --name my-maven-project -v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven maven:3.3-jdk-8 mvn clean install'
+                           sh 'docker run maven:3.3-jdk-8 mvn clean install'
                     }
                 }
                  stage('Tearing Down Selenium Grid') {
