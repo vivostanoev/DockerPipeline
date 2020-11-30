@@ -1,33 +1,27 @@
-def network='jenkins-${BUILD_NUMBER}'
-def seleniumHub='selenium-hub-${BUILD_NUMBER}'
-def chrome='chrome-${BUILD_NUMBER}'
-def firefox='firefox-${BUILD_NUMBER}'
-
 pipeline {
-    agent any
+    environment {
+        JAVA_TOOL_OPTIONS = "-Duser.home=/home/jenkins"
+    }
+    agent {
+        dockerfile {
+            label "docker"
+            args "-v /tmp/maven:/home/jenkins/.m2 -e MAVEN_CONFIG=/home/jenkins/.m2"
+        }
+    }
 
     stages {
-        stage('run a grid') {
-            steps{
-                                    echo 'abv'
-                                    sh "docker network create ${network}"
-                                    sh "docker run -d -p 4444:4444 --name ${seleniumHub} --network ${network} selenium/hub"
-                                    sh "docker run -d -e HUB_PORT_4444_TCP_ADDR=selenium-hub -e HUB_PORT_4444_TCP_PORT=4444 --network ${network} --name ${chrome} selenium/node-chrome"
-                        }
+        stage("Build") {
+            steps {
+                sh "ssh -V"
+                sh "mvn -version"
+                //sh "mvn clean install"
+            }
         }
-         stage('Test') {
-                    steps {
-                             sh 'docker run --network ${network} maven mvn clean install -f ${WORKSPACE}'
-                    }
-                }
-                 stage('Tearing Down Selenium Grid') {
-                          steps {
-                             //remove all the containers and volumes
-                             sh "docker rm -vf ${chrome}"
-                             sh "docker rm -vf ${seleniumHub}"
-                             sh "docker rm -vf maven"
-                             sh "docker network rm ${network}"
-                          }
-                        }
+    }
+
+    post {
+        always {
+            cleanWs()
+        }
     }
 }
