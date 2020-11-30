@@ -8,22 +8,18 @@ pipeline {
     agent any
 
     stages {
-        stage('Compose up') {
+        stage('Set Up Selenium Grid') {
             steps{
 
-             sh 'cd ${WORKSPACE}'
-                        echo 'abv'
-                        sh 'docker-compose build'
+             sh 'docker run -d -p 4444:4444 --name selenium-hub selenium/hub:3.141.59-20201119'
+             sh 'docker run -d --link selenium-hub:hub -v /dev/shm:/dev/shm selenium/node-chrome:3.141.59-20201119'
 
             }
         }
-         stage('Compose down') {
+         stage('Run tests') {
 
                     steps {
-
-                     sh "docker-compose -f ${WORKSPACE}/docker-compose.yml down"
-                                      //sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -e BROWSER=chrome -e MODULE=order-module.xml -v ${WORKSPACE}/order:/usr/share/tag/test-output  --network ${network} vinsdocker/containertest"
-                          // sh 'docker run --network ${network} -e HUB_PORT_4444_TCP_ADDR=${seleniumHub} maven:3-alpine mvn clean install -f ${WORKSPACE}/pom.xml'
+                          sh 'docker run maven:3-alpine mvn clean install -f ${WORKSPACE}/pom.xml --link selenium-hub:hub'
                     }
                 }
     }
