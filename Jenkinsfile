@@ -8,13 +8,12 @@ pipeline {
     agent any
 
     stages {
-        stage('Set up grid and maven') {
-            steps{
-                        echo 'abv'
-                        sh "docker network create ${network}"
-                        sh "docker run -d -p 4444:4444 --name ${seleniumHub} --network ${network} selenium/hub"
-                        sh "docker run -d -e HUB_PORT_4444_TCP_ADDR=selenium-hub -e HUB_PORT_4444_TCP_PORT=4444 --network ${network} --name ${chrome} selenium/node-chrome"
-            }
+       stage('docker-compose') {
+                  steps {
+                     sh "docker-compose build"
+                     sh "docker-compose up -d"
+                  }
+              }
         }
          stage('Run maven tests Test') {
 
