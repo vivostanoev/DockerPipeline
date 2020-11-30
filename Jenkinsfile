@@ -13,16 +13,15 @@ pipeline {
                         echo 'abv'
                         sh "docker network create ${network}"
                         sh "docker run -d -p 4444:4444 --name ${seleniumHub} --network ${network} selenium/hub"
-                        sh "docker run -d -e HUB_PORT_4444_TCP_ADDR=selenium-hub -e HUB_PORT_4444_TCP_PORT=4444 --network ${network} --name ${chrome} selenium/node-chrome"
+                        sh "docker run -d -e HUB_PORT_4444_TCP_ADDR=${seleniumHub} -e HUB_PORT_4444_TCP_PORT=4444 --network ${network} --name ${chrome} selenium/node-chrome"
             }
         }
          stage('Run maven tests Test') {
-                     steps {
 
-                    //steps {
+                    steps {
                                       //sh "docker run --rm -e SELENIUM_HUB=${seleniumHub} -e BROWSER=chrome -e MODULE=order-module.xml -v ${WORKSPACE}/order:/usr/share/tag/test-output  --network ${network} vinsdocker/containertest"
-                        sh 'docker run --network ${network} maven:3.3-jdk-8 mvn clean install -f ${WORKSPACE}/pom.xml'
-                    //}
+                           sh 'docker run --network ${network} maven:3.3-jdk-8 mvn clean install -f ${WORKSPACE}/pom.xml'
+                    }
                 }
                  stage('Tearing Down Selenium Grid') {
                           steps {
