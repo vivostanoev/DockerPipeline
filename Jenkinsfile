@@ -14,7 +14,6 @@ pipeline {
                      sh "docker-compose up -d"
                   }
               }
-        }
          stage('Run maven tests Test') {
 
            agent { docker 'maven:3-alpine' }
