@@ -13,7 +13,7 @@ pipeline {
 
              sh 'cd ${WORKSPACE}'
                         echo 'abv'
-                        sh 'usr/bin/docker-compose -f docker-compose.yml up -d --build'
+                        sh 'docker-compose build'
 
             }
         }

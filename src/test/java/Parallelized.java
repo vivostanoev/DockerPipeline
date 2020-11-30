@@ -13,7 +13,7 @@ public class Parallelized  extends BlockJUnit4ClassRunner {
 
     public Parallelized(Class<?> klass) throws Throwable {
         super(klass);
-        setScheduler(new ParallelScheduler(Executors.newFixedThreadPool(3)));
+        setScheduler(new ParallelScheduler(Executors.newFixedThreadPool(1)));
     }
 
 }
