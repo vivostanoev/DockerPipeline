@@ -10,9 +10,10 @@ pipeline {
     stages {
         stage('Compose up') {
             steps{
+
+             sh 'cd ${WORKSPACE}'
                         echo 'abv'
-                         sh 'docker-compose -v'
-                    sh "docker-compose -f ${WORKSPACE}/docker-compose.yml up"
+                    sh "docker-compose -f docker-compose.yml up"
             }
         }
          stage('Compose down') {
