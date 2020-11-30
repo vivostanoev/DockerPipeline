@@ -19,7 +19,7 @@ pipeline {
          stage('Run tests') {
 
                     steps {
-                          sh 'docker run maven:3-alpine mvn clean install -f ${WORKSPACE}/pom.xml --link selenium-hub:hub'
+                          sh 'docker run --link selenium-hub:hub maven:3-alpine mvn clean install -f ${WORKSPACE}/pom.xml'
                     }
                 }
     }
