@@ -11,6 +11,7 @@ pipeline {
         stage('Compose up') {
             steps{
                         echo 'abv'
+                         sh '/usr/local/bin/docker-compose up --build'
                     sh "docker-compose -f ${WORKSPACE}/docker-compose.yml up"
             }
         }
