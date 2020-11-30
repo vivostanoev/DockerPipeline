@@ -17,7 +17,7 @@ pipeline {
         }
          stage('Test') {
                     steps {
-                             sh 'docker run --network ${network} maven:3-alpine mvn clean install -f ${WORKSPACE}'
+                             sh 'docker run --network ${network} maven mvn clean install -f ${WORKSPACE}'
                     }
                 }
                  stage('Tearing Down Selenium Grid') {
