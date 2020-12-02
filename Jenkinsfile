@@ -19,7 +19,7 @@ pipeline {
          stage('Run maven tests Test') {
          agent {
                          docker {
-                             image '3.6.3-openjdk-15'
+                             image 'maven:3.6.3-ibmjava-8-alpine'
                          }
                      }
 
