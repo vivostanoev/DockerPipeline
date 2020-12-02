@@ -1,3 +1,5 @@
+package test.java;
+
 import org.junit.runners.model.RunnerScheduler;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;

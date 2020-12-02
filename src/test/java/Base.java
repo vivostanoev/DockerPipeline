@@ -1,15 +1,16 @@
+package test.java;
+
 import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Allure;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.ErrorCollector;
-import org.junit.runners.BlockJUnit4ClassRunner;
-import org.junit.runners.model.InitializationError;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import test.java.LoggerRule;
 
 import java.net.MalformedURLException;
 import java.net.URL;

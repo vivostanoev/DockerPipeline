@@ -1,3 +1,5 @@
+package test.java;
+
 import org.junit.Rule;
 import org.junit.rules.TestRule;
 import org.junit.runners.BlockJUnit4ClassRunner;

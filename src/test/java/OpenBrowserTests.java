@@ -1,3 +1,5 @@
+package test.java;
+
 import io.qameta.allure.Allure;
 import io.qameta.allure.junit4.DisplayName;
 import org.hamcrest.core.IsEqual;
