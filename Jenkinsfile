@@ -27,7 +27,7 @@ pipeline {
 
             steps {
                 echo 'runing tests'
-                sh "mvn -Dtest=OpenBrowserTests -DseleniumHubHost=${seleniumHub} -Dbrowser=chrome test"
+                sh "mvn -DseleniumHubHost=${seleniumHub} -Dbrowser=chrome install"
             }
          }
          stage('Tearing Down Selenium Grid') {
