@@ -6,6 +6,7 @@ import org.junit.Rule;
 import org.junit.rules.ErrorCollector;
 import org.junit.runners.BlockJUnit4ClassRunner;
 import org.junit.runners.model.InitializationError;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -22,20 +23,27 @@ public class Base {
     @Rule
     public LoggerRule log = new LoggerRule();
 
+    WebDriver driver;
+
     @Rule
     public ErrorCollector errorCollector = new ErrorCollector();
 
     @Before
     public void beforeTest() throws MalformedURLException {
 
-        ChromeOptions option = new ChromeOptions();
-        String urlToRemoteWD = "http://hub:4444/wd/hub";
+        DesiredCapabilities dc = DesiredCapabilities.chrome();
 
-        RemoteWebDriver driver =new RemoteWebDriver(new URL(urlToRemoteWD), option);
+        if (System.getProperty("browser").equals("firefox"))
+            dc = DesiredCapabilities.firefox();
+
+        String host = System.getProperty("seleniumHubHost");
+
+        driver = new RemoteWebDriver(new URL("http://" + host + ":4444/wd/hub"), dc);
+
         WebDriverRunner.setWebDriver(driver);
 
         Allure.step("Open a browser dialog");
-        driver.get("https://www.demoblaze.com/");
+        open("https://www.demoblaze.com/");
 
     }
 
