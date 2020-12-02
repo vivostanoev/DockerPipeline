@@ -1,0 +1,173 @@
+[1606771886.489][INFO]: Starting ChromeDriver 87.0.4280.20 (c99e81631faa0b2a448e658c0dbd8311fb04ddbd-refs/branch-heads/4280@{#355}) on port 16204
+[1606771886.489][INFO]: Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+[1606771887.142][INFO]: [2fb2f872f414cbf5c6960b544b040e33] COMMAND InitSession {
+   "capabilities": {
+      "firstMatch": [ {
+         "acceptInsecureCerts": true,
+         "browserName": "chrome",
+         "goog:chromeOptions": {
+            "args": [ "--proxy-bypass-list=\u003C-loopback>", "--disable-dev-shm-usage", "--no-sandbox" ],
+            "excludeSwitches": [ "enable-automation", "load-extension" ],
+            "extensions": [  ],
+            "prefs": {
+               "credentials_enable_service": false,
+               "download.default_directory": "C:\\Users\\Viliyan_Stanoev\\IdeaProjects\\DockerPipeline\\build\\downloads\\1606771884444_19312_17",
+               "plugins.always_open_pdf_externally": true
+            }
+         },
+         "pageLoadStrategy": "normal"
+      } ]
+   },
+   "desiredCapabilities": {
+      "acceptInsecureCerts": true,
+      "acceptSslCerts": true,
+      "browserName": "chrome",
+      "goog:chromeOptions": {
+         "args": [ "--proxy-bypass-list=\u003C-loopback>", "--disable-dev-shm-usage", "--no-sandbox" ],
+         "excludeSwitches": [ "enable-automation", "load-extension" ],
+         "extensions": [  ],
+         "prefs": {
+            "credentials_enable_service": false,
+            "download.default_directory": "C:\\Users\\Viliyan_Stanoev\\IdeaProjects\\DockerPipeline\\build\\downloads\\1606771884444_19312_17",
+            "plugins.always_open_pdf_externally": true
+         }
+      },
+      "handlesAlerts": true,
+      "javascriptEnabled": true,
+      "pageLoadStrategy": "normal",
+      "takesScreenshot": true
+   }
+}
+[1606771887.144][INFO]: Populating Preferences file: {
+   "alternate_error_pages": {
+      "enabled": false
+   },
+   "autofill": {
+      "enabled": false
+   },
+   "browser": {
+      "check_default_browser": false
+   },
+   "credentials_enable_service": false,
+   "distribution": {
+      "import_bookmarks": false,
+      "import_history": false,
+      "import_search_engine": false,
+      "make_chrome_default_for_user": false,
+      "skip_first_run_ui": true
+   },
+   "dns_prefetching": {
+      "enabled": false
+   },
+   "download": {
+      "default_directory": "C:\\Users\\Viliyan_Stanoev\\IdeaProjects\\DockerPipeline\\build\\downloads\\1606771884444_19312_17"
+   },
+   "plugins": {
+      "always_open_pdf_externally": true
+   },
+   "profile": {
+      "content_settings": {
+         "pattern_pairs": {
+            "https://*,*": {
+               "media-stream": {
+                  "audio": "Default",
+                  "video": "Default"
+               }
+            }
+         }
+      },
+      "default_content_setting_values": {
+         "geolocation": 1
+      },
+      "default_content_settings": {
+         "geolocation": 1,
+         "mouselock": 1,
+         "notifications": 1,
+         "popups": 1,
+         "ppapi-broker": 1
+      },
+      "password_manager_enabled": false
+   },
+   "safebrowsing": {
+      "enabled": false
+   },
+   "search": {
+      "suggest_enabled": false
+   },
+   "translate": {
+      "enabled": false
+   }
+}
+[1606771887.145][INFO]: Populating Local State file: {
+   "background_mode": {
+      "enabled": false
+   },
+   "ssl": {
+      "rev_checking": {
+         "enabled": false
+      }
+   }
+}
+[1606771887.147][INFO]: Launching chrome: "C:\Program Files\Google\Chrome\Application\chrome.exe" --disable-background-networking --disable-client-side-phishing-detection --disable-default-apps --disable-dev-shm-usage --disable-hang-monitor --disable-popup-blocking --disable-prompt-on-repost --disable-sync --enable-blink-features=ShadowDOMV0 --enable-logging --ignore-certificate-errors --log-level=0 --no-first-run --no-sandbox --no-service-autorun --password-store=basic --proxy-bypass-list=<-loopback> --remote-debugging-port=0 --test-type=webdriver --use-mock-keychain --user-data-dir="C:\Users\VILIYA~1\AppData\Local\Temp\scoped_dir2292_1475422166" data:,
+[1606771887.620][INFO]: resolved localhost to ["::1","127.0.0.1"]
+[1606771889.634][INFO]: resolved localhost to ["::1","127.0.0.1"]
+[1606771891.642][INFO]: [2fb2f872f414cbf5c6960b544b040e33] RESPONSE InitSession {
+   "capabilities": {
+      "acceptInsecureCerts": true,
+      "browserName": "chrome",
+      "browserVersion": "87.0.4280.66",
+      "chrome": {
+         "chromedriverVersion": "87.0.4280.20 (c99e81631faa0b2a448e658c0dbd8311fb04ddbd-refs/branch-heads/4280@{#355})",
+         "userDataDir": "C:\\Users\\VILIYA~1\\AppData\\Local\\Temp\\scoped_dir2292_1475422166"
+      },
+      "goog:chromeOptions": {
+         "debuggerAddress": "localhost:50418"
+      },
+      "networkConnectionEnabled": false,
+      "pageLoadStrategy": "normal",
+      "platformName": "windows",
+      "proxy": {
+
+      },
+      "setWindowRect": true,
+      "strictFileInteractability": false,
+      "timeouts": {
+         "implicit": 0,
+         "pageLoad": 300000,
+         "script": 30000
+      },
+      "unhandledPromptBehavior": "dismiss and notify",
+      "webauthn:virtualAuthenticators": true
+   },
+   "sessionId": "2fb2f872f414cbf5c6960b544b040e33"
+}
+[1606771891.730][INFO]: [2fb2f872f414cbf5c6960b544b040e33] COMMAND SetWindowRect {
+   "height": 768,
+   "width": 1366
+}
+[1606771891.730][INFO]: Waiting for pending navigations...
+[1606771891.732][INFO]: Done waiting for pending navigations. Status: ok
+[1606771891.838][INFO]: Waiting for pending navigations...
+[1606771891.839][INFO]: Done waiting for pending navigations. Status: ok
+[1606771891.839][INFO]: [2fb2f872f414cbf5c6960b544b040e33] RESPONSE SetWindowRect {
+   "height": 770,
+   "width": 1368,
+   "x": 8,
+   "y": 8
+}
+[1606771891.844][INFO]: [2fb2f872f414cbf5c6960b544b040e33] COMMAND SetTimeouts {
+   "pageLoad": 30000
+}
+[1606771891.844][INFO]: [2fb2f872f414cbf5c6960b544b040e33] RESPONSE SetTimeouts
+[1606771891.851][INFO]: [2fb2f872f414cbf5c6960b544b040e33] COMMAND Navigate {
+   "url": "https://www.demoblaze.com/"
+}
+[1606771891.851][INFO]: Waiting for pending navigations...
+[1606771891.852][INFO]: Done waiting for pending navigations. Status: ok
+[1606771892.243][INFO]: Waiting for pending navigations...
+[1606771893.283][INFO]: Done waiting for pending navigations. Status: ok
+[1606771893.283][INFO]: [2fb2f872f414cbf5c6960b544b040e33] RESPONSE Navigate
+[1606771893.291][INFO]: [2fb2f872f414cbf5c6960b544b040e33] COMMAND CloseWindow {
+
+}
+[1606771893.360][INFO]: [2fb2f872f414cbf5c6960b544b040e33] RESPONSE CloseWindow [  ]
