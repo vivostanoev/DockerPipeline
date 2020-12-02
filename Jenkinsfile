@@ -19,6 +19,7 @@ pipeline {
          stage('Run maven tests Test') {
             steps {
                 echo 'runing tests'
+                sh "docker ps"
             }
          }
          stage('Tearing Down Selenium Grid') {
