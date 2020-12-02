@@ -1,0 +1,22 @@
+-------------------------------------------------------------------------------
+Test set: test.java.OpenBrowserTests
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 6, Skipped: 0, Time elapsed: 0.525 s <<< FAILURE! - in test.java.OpenBrowserTests
+test.java.OpenBrowserTests.openBrowserAndFailTest  Time elapsed: 0.231 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "java.lang.System.getProperty(String)" is null
+
+test.java.OpenBrowserTests.openBrowserAndFailTest  Time elapsed: 0.234 s  <<< ERROR!
+java.lang.IllegalStateException: No webdriver is bound to current thread: 17. You need to call open(url) first.
+
+test.java.OpenBrowserTests.testWithchOnlyPrintInConsole  Time elapsed: 0.005 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "java.lang.System.getProperty(String)" is null
+
+test.java.OpenBrowserTests.testWithchOnlyPrintInConsole  Time elapsed: 0.005 s  <<< ERROR!
+java.lang.IllegalStateException: No webdriver is bound to current thread: 17. You need to call open(url) first.
+
+test.java.OpenBrowserTests.openBrowser  Time elapsed: 0.003 s  <<< ERROR!
+java.lang.NullPointerException: Cannot invoke "String.equals(Object)" because the return value of "java.lang.System.getProperty(String)" is null
+
+test.java.OpenBrowserTests.openBrowser  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.IllegalStateException: No webdriver is bound to current thread: 17. You need to call open(url) first.
+
