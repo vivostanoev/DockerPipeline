@@ -20,13 +20,11 @@ pipeline {
          agent {
                          docker {
                              image 'maven:3-alpine'
-                             args '-v home/.m2:/root/.m2'
                              reuseNode true
                          }
                      }
 
             steps {
-                echo 'runing tests'
                 sh "mvn -DseleniumHubHost=${seleniumHub} -Dbrowser=chrome install"
             }
          }
