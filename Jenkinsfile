@@ -19,8 +19,7 @@ pipeline {
          stage('Run maven tests Test') {
          agent {
                          docker {
-                             image 'maven:3-alpine'
-                             reuseNode true
+                             image '3.6.3-openjdk-15'
                          }
                      }
 
