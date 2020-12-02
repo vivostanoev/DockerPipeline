@@ -23,7 +23,7 @@ pipeline {
                          }
                      }
             steps {
-                sh "mvn -DseleniumHubHost=${seleniumHub} -Dbrowser=chrome install"
+                sh "mvn -DseleniumHubHost=${seleniumHub} -Dbrowser=chrome test"
             }
          }
          stage('Tearing Down Selenium Grid') {
