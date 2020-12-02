@@ -44,14 +44,14 @@ public class Base {
         WebDriverRunner.setWebDriver(driver);
 
         Allure.step("Open a browser dialog");
-        open("https://www.demoblaze.com/");
+        driver.get("https://www.demoblaze.com/");
 
     }
 
     @After
     public synchronized void afterTest()
     {
-        WebDriverRunner.closeWindow();
+        driver.quit();
         log.printf();
     }
 }
