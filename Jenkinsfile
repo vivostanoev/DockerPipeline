@@ -12,7 +12,7 @@ pipeline {
             steps{
                         echo 'abv'
                         sh "docker network create ${network}"
-                        sh "docker run -d -p 4445:4445 --network ${network} --name ${seleniumHub} --host 0.0.0.0 --port 4445' selenium/hub:3.141.59-20201119"
+                        sh "docker run -d -p 4445:4445 --network ${network} --name ${seleniumHub} --host 0.0.0.0 --port 4445 selenium/hub:3.141.59-20201119"
                         sh "docker run -d --network ${network} -e HUB_HOST=${seleniumHub} e HUB_PORT=4445 --name ${chrome} -v /dev/shm:/dev/shm selenium/node-chrome"
             }
         }
