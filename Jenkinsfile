@@ -13,7 +13,7 @@ pipeline {
                         echo 'abv'
                         sh "docker network create ${network}"
                         sh "docker run -d -p 4445:4445 --network ${network} --name ${seleniumHub} selenium/hub:3.141.59-20201119"
-                        sh "docker run -d --network ${network} -e HUB_HOST=${seleniumHub} e HUB_PORT=4445 --name ${chrome} -v /dev/shm:/dev/shm selenium/node-chrome"
+                        sh "docker run -d -e HUB_PORT_4444_TCP_ADDR=${seleniumHub} -e HUB_PORT_4444_TCP_PORT=4445 --network ${network} --name ${chrome} selenium/node-chrome"
             }
         }
          stage('Run maven tests Test') {
