@@ -19,10 +19,9 @@ pipeline {
          stage('Run maven tests Test') {
          agent {
                          docker {
-                             image 'maven:3.6.3-ibmjava-8-alpine'
+                             image 'maven'
                          }
                      }
-
             steps {
                 sh "mvn -DseleniumHubHost=${seleniumHub} -Dbrowser=chrome install"
             }
