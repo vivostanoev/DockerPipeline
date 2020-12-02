@@ -17,18 +17,18 @@ pipeline {
             }
         }
          stage('Run maven tests Test') {
-
-                    steps {
-                        echo 'runing tests'
-                    }
-                }
-                 stage('Tearing Down Selenium Grid') {
-                          steps {
+            steps {
+                echo 'runing tests'
+            }
+         }
+         stage('Tearing Down Selenium Grid') {
+            steps {
+                echo 'finished'
                              //remove all the containers and volumes
                              //sh "docker rm -vf ${chrome}"
                              //sh "docker rm -vf ${seleniumHub}"
                              //sh "docker network rm ${network}"
-                          }
-                        }
+            }
+         }
     }
 }
